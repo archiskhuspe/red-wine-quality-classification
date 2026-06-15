@@ -1,5 +1,5 @@
 library('caret')
-wine <- read.csv("C:/Users/Archis/Desktop/winequality-red.csv")
+wine <- read.csv("dataset.csv")
 
 wine$quality[wine$quality=="3"] <- 4
 wine$quality[wine$quality=="8"] <- 7
@@ -64,8 +64,8 @@ svm_Radial <- train(quality ~., data = training, method = "svmRadial",trControl=
 cat("SVM MODEL: \n")
 print(svm_Radial)
 
-test_pred <- predict(svm_Linear, newdata = testing)
-cat("\n PREDICTIONG ON TESTING DATASET:\n")
+test_pred <- predict(svm_Radial, newdata = testing)
+cat("\n PREDICTING ON TESTING DATASET:\n")
 print(test_pred)
 
 cat("\n\n")
